@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"></meta>
+  <title>Tax Invoice</title>
+</head>
+<body style="font-family: 'Arial Unicode MS'; margin: 20px; color: #333; font-size: 12px; line-height: 1.4;">
+<div style="max-width: 1000px; margin: 0 auto;">
+  <!-- Title and QR Code -->
+  <table style="width: 100%; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+    <tr>
+      <td style="width: 33%; vertical-align: middle;">
+        <img src="https://rhokart-images.s3.ap-south-1.amazonaws.com/Rhokart.jpg" alt="Rhokart Logo" style="width: 100px; height: auto;"></img>
+      </td>
+      <td style="width: 33%; text-align: center; vertical-align: middle;">
+        <h2>Tax Invoice<br></br>
+          <span style="font-size: 12px">(Rhokart to Seller)</span></h2>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Order/Invoice Numbers -->
+  <table style="width: 100%; margin-bottom: 5px;">
+          <tr>
+            <td style="padding: 5px 0; width: 140px; width: 50%; vertical-align: top;"><strong>Order number: </strong>${orderNum}, ${OrdDateTime}</td>
+            <td style="padding: 5px 0; width: 140px; width: 50%; vertical-align: top;"><strong>Invoice number: </strong>${invNum}</td>
+          </tr>
+  </table>
+
+  <!-- Billing and Shipping Address
+  <table style="width: 100%; margin-bottom: 30px;">
+    <tr>
+      <td style="width: 100%; vertical-align: top;">
+        <strong>Shipping Address:</strong>
+        ${shippingName},
+        ${shippingAddress1},
+        ${shippingAddress2}, ${shippingDistrict}<br></br>
+        ${shippingState}, ${shippingPincode}<br></br>
+        ${shippingCountry}<br></br>
+        <strong>Contact Person:</strong>
+        ${contactPhone}
+      </td>
+    </tr>
+  </table>-->
+
+  <!-- Seller Information -->
+  <table style="width: 100%; margin-bottom: 30px; font-size: 10px;">
+    <tr>
+      <td style="width: 50%; vertical-align: top;">
+        <strong>Buyer Details:</strong><br></br>
+        ${sellerTradeDisplayName}, ${sellerBusinessName}<br></br>
+        ${sellerAddress1}, ${sellerAddress2}<br></br>
+        ${sellerDistrict}, ${sellerState}, ${sellerPincode}, ${sellerCountry}<br></br>
+        <strong>Buyer PAN number:</strong> ${sellerPAN}<br></br>
+        <strong>Buyer GST registration number:</strong> ${sellerGST}
+      </td>
+      <td style="width: 50%; vertical-align: top;">
+        <strong>Seller Details:</strong><br></br>
+        Rhoselect Private Limited<br></br>
+        235, BINNAMANGALA, 2nd Floor, 13th Cross Road, Indira Nagar 2nd Stage,<br></br>
+        Bengaluru–560038<br></br>
+        <br></br>
+        <strong>GST registration number:</strong> 29AAOCR3968H1ZM
+      </td>
+    </tr>
+  </table>
+
+
+  <!-- Product Details Table -->
+  <table style="width: 100%; border-collapse: collapse; font-size: 9px; margin-bottom: 20px;">
+    <thead>
+    <tr>
+      <th style="border: 1px solid #ddd; padding: 5px; word-wrap: break-word; vertical-align: top; background-color: #f8f9fa; text-align: left; width: 5%;">S. No.</th>
+      <th style="border: 1px solid #ddd; padding: 5px; word-wrap: break-word; vertical-align: top; background-color: #f8f9fa; text-align: left; width: 30%;">Product Description</th>
+      <th style="border: 1px solid #ddd; padding: 5px; word-wrap: break-word; vertical-align: top; background-color: #f8f9fa; text-align: left; width: 10%;">HSN/SAC</th>
+      <th style="border: 1px solid #ddd; padding: 5px; word-wrap: break-word; vertical-align: top; background-color: #f8f9fa; text-align: left; width: 10%;">Unit Price (w/o GST), INR</th>
+      <th style="border: 1px solid #ddd; padding: 5px; word-wrap: break-word; vertical-align: top; background-color: #f8f9fa; text-align: left; width: 8%;">GST Rate and Type</th>
+      <th style="border: 1px solid #ddd; padding: 5px; word-wrap: break-word; vertical-align: top; background-color: #f8f9fa; text-align: left; width: 7%;">Qty</th>
+      <th style="border: 1px solid #ddd; padding: 5px; word-wrap: break-word; vertical-align: top; background-color: #f8f9fa; text-align: left; width: 10%;">Total amount(w/o GST), INR</th>
+      <th style="border: 1px solid #ddd; padding: 5px; word-wrap: break-word; vertical-align: top; background-color: #f8f9fa; text-align: left; width: 10%;">Total GST Amount, INR</th>
+      <th style="border: 1px solid #ddd; padding: 5px; word-wrap: break-word; vertical-align: top; background-color: #f8f9fa; text-align: left; width: 10%;">Total Amount (Incl. GST), INR</th>
+    </tr>
+    </thead>
+    <tbody>
+    ${tableContent}
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">${headCount1}</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">Logistics and transportation charges</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">8827</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">${logwogst}</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">18.00% ${gstType}</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">-</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">${totallogwogst}</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">${totalloggst}</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">${totallogwithgst}</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">₹ ${headCount3}</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">Total discount and promotion applied</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">-</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">${discwogst}</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">-</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">-</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">${totaldiscwogst}</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">-</td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;">${totaldiscwithgst}</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: center; vertical-align: top;" colspan="5"><strong>Net total</strong></td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;"><strong>${totalQty}</strong></td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;"><strong>${netTotal}</strong></td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;"><strong>${totalGstAmount}</strong></td>
+      <td style="border: 1px solid #ddd; padding: 5px; text-align: left; vertical-align: top;" colspan="2"><strong>${totalInvoiceValue}</strong></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Totals Section
+  <div style="text-align: right; margin-bottom: 20px;">
+    <strong>Net total:</strong> ${netTotal}<br></br>
+    <strong>Total GST amount:</strong> ${totalGstAmount}<br></br>
+    <strong>Total invoice value:</strong> ${totalInvoiceValue}
+  </div>-->
+
+  <!-- Amount in Words -->
+  <div style="margin-bottom: 20px;">
+    <strong>Amount in words:</strong> ${amountInWords}
+  </div>
+
+
+  <!-- Authorized Signatory -->
+  <table style="width: 100%; margin-top: 40px; margin-bottom: 20px; font-size: 10px;">
+    <tr>
+      <td style="text-align: right;">
+        Rhoselect Private Limited<br></br>
+        <div style="margin-top: 10px;">
+          <img src="https://rhokart-images.s3.ap-south-1.amazonaws.com/rhosign.jpg" alt="Authorized Signature" style="height: 30px; width:100px; margin: 10px 0;"></img>
+        </div>
+        <div style="margin-top: 20px;">Authorized Signatory</div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Footer -->
+  <div style="margin-top: 40px; font-size: 12px; color: #666; border-top: 1px solid #eee; padding-top: 20px;text-align: center;">
+    <p>Rhoselect private limited</p>
+  </div>
+</div>
+</body>
+</html>
